@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de alumnos</title>
+    <style>
+        body {
+            background-color: #f4f6f8;
+            color: #1f2933;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 32px;
+        }
+
+        main {
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        h1 {
+            color: #173b57;
+            text-align: center;
+        }
+
+        table {
+            background-color: white;
+            border: 2px solid #173b57;
+            border-collapse: collapse;
+            margin: 24px auto;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #8a9aa8;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #173b57;
+            color: white;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #eef3f6;
+        }
+
+        td.aprobado {
+            background-color: #b8e6c1 !important;
+            color: #14532d;
+            font-weight: bold;
+        }
+
+        td.suspenso {
+            background-color: #f5b7b1 !important;
+            color: #7f1d1d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Listado de alumnos</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">N.º de alumno</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Nota media</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Laura</td>
+                    <td>García López</td>
+                    <td>1.º A</td>
+                    <td class="aprobado">8,5</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Daniel</td>
+                    <td>Martín Ruiz</td>
+                    <td>1.º A</td>
+                    <td class="suspenso">4,2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sofía</td>
+                    <td>Navarro Sánchez</td>
+                    <td>1.º B</td>
+                    <td class="aprobado">7,8</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Hugo</td>
+                    <td>Fernández Díaz</td>
+                    <td>1.º B</td>
+                    <td class="aprobado">6,4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Lucía</td>
+                    <td>Moreno Torres</td>
+                    <td>2.º A</td>
+                    <td class="suspenso">3,9</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Álvaro</td>
+                    <td>Romero Jiménez</td>
+                    <td>2.º A</td>
+                    <td class="aprobado">9,1</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Emma</td>
+                    <td>Vega Molina</td>
+                    <td>2.º B</td>
+                    <td class="aprobado">5,7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Mateo</td>
+                    <td>Castro Gil</td>
+                    <td>2.º B</td>
+                    <td class="suspenso">4,8</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

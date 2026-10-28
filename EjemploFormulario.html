@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primer formulario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 30px;
+        }
+
+        form {
+            max-width: 420px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+
+        fieldset {
+            margin: 15px 0;
+            padding: 10px;
+        }
+
+        fieldset label {
+            font-weight: normal;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            margin: 5px 0 15px;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin: 5px;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            padding: 7px 15px;
+            background-color: lightseagreen;
+            color: white;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mi primer formulario</h1>
+
+    <form action="resultado_inscripcion.php" method="post">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellidos">Apellidos:</label><br>
+        <input type="text" id="apellidos" name="apellidos" required>
+
+        <label for="dni">DNI:</label><br>
+        <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]" required>
+
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label><br>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+        <label for="correo">Correo electrónico:</label><br>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="telefono">Teléfono:</label><br>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+
+        <label for="ciclo">Ciclo formativo:</label><br>
+        <select id="ciclo" name="ciclo" required>
+            <option value="">Elige un ciclo</option>
+            <option value="Administración y Finanzas">Administración y Finanzas</option>
+            <option value="Desarrollo de Aplicaciones Web">Desarrollo de Aplicaciones Web</option>
+            <option value="Desarrollo de Aplicaciones Multiplataforma">Desarrollo de Aplicaciones Multiplataforma</option>
+            <option value="Sistemas Microinformáticos y Redes">Sistemas Microinformáticos y Redes</option>
+        </select>
+
+        <fieldset>
+            <legend>Turno preferido:</legend>
+            <label><input type="radio" name="turno" value="Mañana" required> Mañana</label>
+            <label><input type="radio" name="turno" value="Tarde"> Tarde</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Modalidad:</legend>
+            <label><input type="radio" name="modalidad" value="Presencial" required> Presencial</label><br>
+            <label><input type="radio" name="modalidad" value="Semipresencial"> Semipresencial</label><br>
+            <label><input type="radio" name="modalidad" value="Online"> Online</label>
+        </fieldset>
+
+        <label>
+            <input type="checkbox" name="privacidad" value="Aceptada" required>
+            Acepto la política de privacidad.
+        </label><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>

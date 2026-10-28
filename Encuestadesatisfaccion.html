@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de satisfacción</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+        }
+
+        form, table {
+            max-width: 700px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .opcion {
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #d2f5ce;
+        }
+
+        .valoracion-positiva {
+            color: green;
+            font-weight: bold;
+        }
+
+        .valoracion-media {
+            color: #b36b00;
+            font-weight: bold;
+        }
+
+        .valoracion-negativa {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Encuesta de satisfacción</h1>
+    <p>Cuéntanos qué te ha parecido nuestro servicio.</p>
+
+    <form action="#" method="post">
+        <label for="cliente">Nombre del cliente (opcional):</label>
+        <input type="text" id="cliente" name="cliente">
+
+        <label for="servicio">Servicio utilizado:</label>
+        <select id="servicio" name="servicio" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="Reparación">Reparación</option>
+            <option value="Instalación">Instalación</option>
+            <option value="Mantenimiento">Mantenimiento</option>
+        </select>
+
+        <label>Valoración general:</label>
+        <label class="opcion"><input type="radio" name="valoracion" value="1" required> 1</label>
+        <label class="opcion"><input type="radio" name="valoracion" value="2"> 2</label>
+        <label class="opcion"><input type="radio" name="valoracion" value="3"> 3</label>
+        <label class="opcion"><input type="radio" name="valoracion" value="4"> 4</label>
+        <label class="opcion"><input type="radio" name="valoracion" value="5"> 5</label>
+
+        <label>Aspectos que más te han gustado:</label>
+        <label class="opcion"><input type="checkbox" name="aspectos[]" value="Atención"> Atención</label>
+        <label class="opcion"><input type="checkbox" name="aspectos[]" value="Rapidez"> Rapidez</label>
+        <label class="opcion"><input type="checkbox" name="aspectos[]" value="Precio"> Precio</label>
+        <label class="opcion"><input type="checkbox" name="aspectos[]" value="Calidad"> Calidad</label>
+
+        <label>¿Recomendarías el servicio?</label>
+        <label class="opcion"><input type="radio" name="recomienda" value="Sí" required> Sí</label>
+        <label class="opcion"><input type="radio" name="recomienda" value="No"> No</label>
+
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+
+        <button type="submit">Enviar encuesta</button>
+        <button type="reset">Limpiar</button>
+    </form>
+
+    <h2>Resultados de encuestas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Servicio</th>
+                <th>Valoración</th>
+                <th>Recomienda</th>
+                <th>Comentarios</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mirian Tirado Domínguez</td>
+                <td>Reparación</td>
+                <td class="valoracion-positiva">5</td>
+                <td>Sí</td>
+                <td>Muy buen servicio</td>
+            </tr>
+            <tr>
+                <td>Alvaro Rosales Moreno</td>
+                <td>Instalación</td>
+                <td class="valoracion-positiva">4</td>
+                <td>Sí</td>
+                <td>Rápido y eficaz</td>
+            </tr>
+            <tr>
+                <td>Pablo Molina Cansino</td>
+                <td>Reparación</td>
+                <td class="valoracion-media">3</td>
+                <td>No</td>
+                <td>Tardaron demasiado</td>
+            </tr>
+            <tr>
+                <td>Daiana Ruiz Pereira</td>
+                <td>Mantenimiento</td>
+                <td class="valoracion-positiva">5</td>
+                <td>Sí</td>
+                <td>Excelente atención</td>
+            </tr>
+            <tr>
+                <td>Jose Alberto Peréz Ortiz</td>
+                <td>Instalación</td>
+                <td class="valoracion-negativa">2</td>
+                <td>No</td>
+                <td>Precio elevado</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

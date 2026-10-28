@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de inscripción</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; margin: 20px; }
+        form { max-width: 500px; margin: auto; }
+        label { display: block; margin-top: 12px; }
+        input, select { width: 100%; padding: 6px; box-sizing: border-box; }
+        fieldset { margin-top: 15px; }
+        fieldset label, .privacidad label { display: inline; margin-right: 12px; }
+        fieldset input, .privacidad input { width: auto; }
+        button { margin-top: 15px; padding: 8px 16px; }
+    </style>
+</head>
+<body>
+    <form id="formulario-inscripcion" action="resultado_inscripcion.html" method="get">
+        <h1>Inscripción en el curso</h1>
+        <p>Completa los siguientes datos para solicitar tu inscripción.</p>
+
+        <div class="campo">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="campo">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+        </div>
+        <div class="campo">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]" title="Introduce 8 números y una letra, por ejemplo 12345678A" required>
+        </div>
+        <div class="campo">
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+        </div>
+        <div class="campo">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="campo">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" title="Introduce un teléfono de 9 números" required>
+        </div>
+        <div class="campo">
+            <label for="ciclo">Ciclo formativo:</label>
+            <select id="ciclo" name="ciclo" required>
+                <option value="">Selecciona un ciclo</option>
+                <option value="Administración y Finanzas">Administración y Finanzas</option>
+                <option value="Desarrollo de Aplicaciones Web">Desarrollo de Aplicaciones Web</option>
+                <option value="Desarrollo de Aplicaciones Multiplataforma">Desarrollo de Aplicaciones Multiplataforma</option>
+                <option value="Sistemas Microinformáticos y Redes">Sistemas Microinformáticos y Redes</option>
+                <option value="Marketing y Publicidad">Marketing y Publicidad</option>
+            </select>
+        </div>
+        <fieldset>
+            <legend>Turno preferido:</legend>
+            <label><input type="radio" name="turno" value="Mañana" required> Mañana</label>
+            <label><input type="radio" name="turno" value="Tarde"> Tarde</label>
+        </fieldset>
+        <fieldset>
+            <legend>Modalidad:</legend>
+            <label><input type="radio" name="modalidad" value="Presencial" required> Presencial</label>
+            <label><input type="radio" name="modalidad" value="Semipresencial"> Semipresencial</label>
+            <label><input type="radio" name="modalidad" value="Online"> Online</label>
+        </fieldset>
+        <div class="campo privacidad">
+            <label><input type="checkbox" name="privacidad" value="Aceptada" required> Acepto la política de privacidad.</label>
+        </div>
+        <button type="submit">Enviar inscripción</button>
+        <p id="error-envio" role="alert" hidden>No se han podido guardar los datos en esta sesión. Comprueba la configuración del navegador e inténtalo de nuevo.</p>
+    </form>
+    <script>
+        const formulario = document.getElementById('formulario-inscripcion');
+        const mensajeError = document.getElementById('error-envio');
+
+        formulario.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            const datos = Object.fromEntries(new FormData(formulario).entries());
+
+            try {
+                sessionStorage.setItem('datosInscripcion', JSON.stringify(datos));
+                window.location.href = formulario.action;
+            } catch {
+                mensajeError.hidden = false;
+            }
+        });
+    </script>
+</body>
+</html>

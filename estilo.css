@@ -1,0 +1,31 @@
+p {
+    color: rgb(86, 187, 187);
+    font-family: 'Times New Roman';
+    font-size: 80%;
+    border: 2px solid powderblue;
+    padding: 30px;
+}
+
+.paddingGrande {
+    color: blueviolet;
+    padding: 30px;
+}
+
+.paddingPequeño {
+    padding: 3px;
+    color: brown;
+}
+
+.bordergrande {
+    border: 10px color deeppink;
+}
+
+.borderpequeño {
+    border: 1px color indigo;
+}
+
+#titulo {
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}

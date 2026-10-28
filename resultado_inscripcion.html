@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de inscripción</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; margin: 20px; }
+        main { max-width: 500px; margin: auto; }
+        .datos { margin-top: 20px; }
+        .dato { margin-top: 12px; }
+        .etiqueta { display: block; margin-bottom: 6px; }
+        .valor { display: block; width: 100%; padding: 6px; box-sizing: border-box; border: 1px solid #767676; background: #f7f7f7; }
+        a { display: inline-block; margin-top: 15px; padding: 8px 16px; color: #000; border: 1px solid #767676; text-decoration: none; }
+        a:hover { background: #eee; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Inscripción recibida</h1>
+        <p id="mensaje-resultado" role="status">Cargando los datos de la inscripción...</p>
+        <div id="datos-inscripcion" class="datos"></div>
+        <a href="Formulariodeinscripcion.html">Volver al formulario</a>
+    </main>
+    <script>
+        const etiquetas = {
+            nombre: 'Nombre',
+            apellidos: 'Apellidos',
+            dni: 'DNI',
+            fecha_nacimiento: 'Fecha de nacimiento',
+            correo: 'Correo electrónico',
+            telefono: 'Teléfono',
+            ciclo: 'Ciclo formativo',
+            turno: 'Turno preferido',
+            modalidad: 'Modalidad',
+            privacidad: 'Política de privacidad'
+        };
+        const mensaje = document.getElementById('mensaje-resultado');
+        const contenedor = document.getElementById('datos-inscripcion');
+
+        try {
+            const datosGuardados = sessionStorage.getItem('datosInscripcion');
+
+            if (!datosGuardados) {
+                mensaje.textContent = 'No hay datos de inscripción para mostrar. Completa y envía el formulario.';
+            } else {
+                const datos = JSON.parse(datosGuardados);
+
+                for (const [campo, etiqueta] of Object.entries(etiquetas)) {
+                    const dato = document.createElement('div');
+                    const nombreCampo = document.createElement('span');
+                    const valorCampo = document.createElement('span');
+
+                    dato.className = 'dato';
+                    nombreCampo.className = 'etiqueta';
+                    nombreCampo.textContent = `${etiqueta}:`;
+                    valorCampo.className = 'valor';
+                    valorCampo.textContent = datos[campo] || 'No indicado';
+                    dato.append(nombreCampo, valorCampo);
+                    contenedor.append(dato);
+                }
+
+                mensaje.textContent = 'Estos son los datos que has enviado:';
+            }
+        } catch {
+            mensaje.textContent = 'No se pudieron leer los datos guardados. Vuelve al formulario e inténtalo de nuevo.';
+        }
+    </script>
+</body>
+</html>
